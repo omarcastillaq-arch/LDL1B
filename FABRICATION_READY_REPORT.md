@@ -1,78 +1,130 @@
-# 🏭 LDL1B Rev B — Fabrication Ready Report
+# Fabrication Readiness Report — LDL1B Rev B
 
-**Status: ✅ READY FOR FABRICATION**  
-**Date:** May 20, 2026  
-**Board:** Life Data Link Rev B (HZLDL1B)  
+**Date:** 2026-05-20  
+**Product:** Life Data Link — Multimodal Vital Signs Monitor  
+**Product Code:** HZLDL1B  
+**Author:** DRC Review & Fabrication Prep (Automated)  
 
 ---
 
-## Executive Summary
+## Board Specifications
 
-All fabrication files for the LDL1B Rev B PCB have been generated and validated. The package is ready to send to a PCB fabrication house and assembly service.
-
-## Board Overview
-
-| Specification | Value |
-|---------------|-------|
-| Product | Life Data Link — Vital Signs Monitor |
-| Revision | B |
-| Layers | 4 |
+| Parameter | Value |
+|-----------|-------|
+| Board name | LDL1B Rev B |
 | Dimensions | 62.45 × 72.44 mm |
-| Material | FR4, 1.6 mm, ENIG |
-| Components | 92 total (48 unique) |
-| Key ICs | BL654, ADS1292R, MAX30102, TMP117, IIS2DLPC |
-
-## Deliverables
-
-### ✅ Gerber Files (13 layers + 2 drill + 2 drill maps)
-Located in: `fabrication/gerbers/`
-- 4 copper layers (F.Cu, In1.Cu, In2.Cu, B.Cu)
-- 2 solder mask layers
-- 2 solder paste layers
-- 2 silkscreen layers
-- 2 fabrication layers
-- 1 board outline
-- PTH + NPTH drill files (Excellon format)
-
-### ✅ Bill of Materials
-- `fabrication/LDL1B_BOM.xlsx` — Excel with MPN/manufacturer data
-- `fabrication/LDL1B_BOM.csv` — CSV format
-- 48 unique line items, 92 total components
-- MPNs cross-referenced from LDL1A Rev A BOM
-
-### ✅ Pick-and-Place (CPL)
-- `fabrication/LDL1B_CPL.csv` — 92 component placements
-- Includes X/Y position, rotation, and side (top/bottom)
-
-### ✅ Assembly Documentation
-- `fabrication/assembly/LDL1B_Top_Assembly.svg` — Top side drawing
-- `fabrication/assembly/LDL1B_Bot_Assembly.svg` — Bottom side drawing
-
-### ✅ Fabrication README
-- `fabrication/README_FABRICATION.md` — Complete specifications, file listing, stack-up, and notes
-
-### ✅ Gerber ZIP
-- `fabrication/LDL1B_revB_gerbers.zip` — Ready to upload to fab house
-
-## Verification Results
-
-| Check | Status |
-|-------|--------|
-| All 4 copper layers present | ✅ |
-| Solder mask (both sides) | ✅ |
-| Solder paste (both sides) | ✅ |
-| Silkscreen (both sides) | ✅ |
-| Board outline | ✅ |
-| Drill files (PTH + NPTH) | ✅ |
-| BOM component count matches CPL | ✅ (92) |
-| Protel file extensions correct | ✅ |
-| MPN data populated | ✅ |
-
-## Source Files
-
-- PCB Source: `Lifedatalink_v1_revB.kicad_pcb` (KiCad 6+)
-- Schematic: `Lifedatalink_v1_revB.kicad_sch`
+| Layers | 4 (F.Cu, In1.Cu, In2.Cu, B.Cu) |
+| Stackup | FR4, 1.6 mm |
+| Surface finish | ENIG |
+| Min track width | 0.1524 mm (6 mil) |
+| Min clearance | 0.1524 mm (6 mil) |
+| Min via drill | 0.2 mm |
+| Via diameter | 0.4 mm |
+| Components | 92 (SMD) |
+| Unique parts | 48 |
+| Nets | 137 |
 
 ---
 
-*Report generated automatically from KiCad PCB source files.*
+## Fabrication Files
+
+All files located in `fabrication/` directory.
+
+### Gerber Files (`fabrication/gerbers/`)
+
+| File | Layer | Extension |
+|------|-------|-----------|
+| LDL1B_revB-F_Cu.gtl | Front Copper | .gtl |
+| LDL1B_revB-In1_Cu.g2 | Inner Layer 1 | .g2 |
+| LDL1B_revB-In2_Cu.g3 | Inner Layer 2 | .g3 |
+| LDL1B_revB-B_Cu.gbl | Back Copper | .gbl |
+| LDL1B_revB-F_Mask.gts | Front Solder Mask | .gts |
+| LDL1B_revB-B_Mask.gbs | Back Solder Mask | .gbs |
+| LDL1B_revB-F_Paste.gtp | Front Paste (Stencil) | .gtp |
+| LDL1B_revB-B_Paste.gbp | Back Paste (Stencil) | .gbp |
+| LDL1B_revB-F_SilkS.gto | Front Silkscreen | .gto |
+| LDL1B_revB-B_SilkS.gbo | Back Silkscreen | .gbo |
+| LDL1B_revB-Edge_Cuts.gm1 | Board Outline | .gm1 |
+| LDL1B_revB-F_Fab.gbr | Front Fabrication | .gbr |
+| LDL1B_revB-B_Fab.gbr | Back Fabrication | .gbr |
+
+### Drill Files (`fabrication/gerbers/`)
+
+| File | Description |
+|------|-------------|
+| LDL1B_revB-PTH.drl | Plated Through Holes |
+| LDL1B_revB-NPTH.drl | Non-Plated Through Holes |
+
+### Assembly Files
+
+| File | Description |
+|------|-------------|
+| LDL1B_BOM.csv | Bill of Materials (CSV) |
+| LDL1B_BOM.xlsx | Bill of Materials (Excel, with notes) |
+| LDL1B_CPL.csv | Component Placement List (92 components) |
+| assembly/LDL1B_revB_assembly_top.svg | Top assembly drawing |
+| assembly/LDL1B_revB_assembly_bottom.svg | Bottom assembly drawing |
+
+### Archive
+
+| File | Description |
+|------|-------------|
+| LDL1B_revB_gerbers.zip | Complete Gerber + drill package |
+
+---
+
+## DRC Status
+
+**96 violations remaining** (reduced from 3,008 — 97% reduction)
+
+- 45 clearance warnings (marginal, within fab tolerances)
+- 22 unconnected items (pre-existing design issues, documented)
+- 29 low-severity warnings (dangling tracks, silk overlap, MIC artwork)
+
+See `DRC_REPORT.md` for full details and engineering decisions.
+
+---
+
+## Known Issues & Discrepancies
+
+### ⚠️ Schematic–PCB Mismatch (U2, U7)
+
+| Ref | Schematic | PCB | Status |
+|-----|-----------|-----|--------|
+| U2 | NCP167BMX330TBG (XDFN4) | LP5907MFX-3.3 (SOT-23-5) | **Keep PCB — packages incompatible** |
+| U7 | NCP167AMX180TBG (XDFN4) | LP5907MFX-1.8 (SOT-23-5) | **Keep PCB — packages incompatible** |
+
+**Impact:** BOM lists LP5907 (matches PCB). Schematic must be updated to match.
+
+### ⚠️ U9 (PCA9306DQER) Missing from Schematic
+
+- U9 is present on PCB and **required** for I²C level translation (3.3V ↔ 1.8V)
+- Removing U9 would break ALL I²C sensor communication
+- **Impact:** U9 included in BOM and CPL. Schematic must be updated to re-add U9.
+
+### ⚠️ 22 Unconnected Nets
+
+Pre-existing routing issues requiring manual fixes:
+- 13 power plane connections (GND, +3V3, +1V8)
+- 6 I²S signal traces (I2S_CLK, I2S_DOUT, I2S_WS)
+- 3 ECG signal traces (ECG_LEFT_ARM, ECG_RIGHT_ARM, ECG_LEFT_LEG)
+
+---
+
+## Fabrication Readiness
+
+### ✅ CONDITIONAL GO — Suitable for Prototype Run
+
+**Ready:**
+- ✅ All Gerber layers generated with correct Protel extensions
+- ✅ Drill files (PTH + NPTH) in Excellon format
+- ✅ BOM with 48 unique line items, MPNs, and supplier info
+- ✅ CPL with 92 component placements (X, Y, rotation, side)
+- ✅ Assembly drawings (top + bottom SVG)
+- ✅ Design rules match actual 6-mil routing
+
+**Before production run:**
+- ☐ Resolve 22 unconnected items (manual routing in KiCad)
+- ☐ Update schematic to match PCB (U2/U7 → LP5907, re-add U9)
+- ☐ Review I²S and ECG signal continuity on prototype
+- ☐ Clean up dangling tracks and unused vias

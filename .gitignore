@@ -34,3 +34,14 @@ fp-info-cache
 Lifedatalink_v1_revB_compat.kicad_pcb
 FABRICATION_READY_REPORT.docx
 FABRICATION_READY_REPORT.pdf
+
+# Auto-generated report exports
+*.docx
+*.pdf
+
+# KiCad project files (auto-generated)
+*.kicad_prl
+*.kicad_pro
+
+# Abacus marker
+.abacus.donotdelete
